@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./djangoapp
+      dockerfile: Dockerfile
+    container_name: cme_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./djangoapp:/app
+    env_file:
+      - ./dotenv_files/backend.env
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cme_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:15
+    container_name: cme_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    env_file:
+      - ./dotenv_files/db.env
+
+volumes:
+  db_data:
+    driver: local

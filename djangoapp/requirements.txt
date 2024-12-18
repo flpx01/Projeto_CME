@@ -1,0 +1,7 @@
+Django==5.1.4
+djangorestframework
+djangorestframework-simplejwt
+corsheaders
+reportlab
+openpyxl
+psycopg2-binary

@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MaterialsPage from "./pages/MaterialsPage";
 import ProcessesPage from "./pages/ProcessesPage";
-import LoginPage from "./pages/LoginPage";
-import PrivateRoute from "./components/PrivateRoute"; // Importando o componente de rotas protegidas
+import LoginPage from "./pages/LoginPage";// Importando o componente de rotas protegidas
+import RegisterPage from "./pages/RegisterPage";
+
 
 function App() {
     return (
@@ -11,24 +12,10 @@ function App() {
             <Routes>
                 {/* Rota de login - pública */}
                 <Route path="/login" element={<LoginPage />} />
-
-                {/* Rotas protegidas */}
-                <Route
-                    path="/"
-                    element={
-                        <PrivateRoute>
-                            <MaterialsPage />
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path="/processes"
-                    element={
-                        <PrivateRoute>
-                            <ProcessesPage />
-                        </PrivateRoute>
-                    }
-                />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="processes" element={<MaterialsPage />} />
+                <Route path="processes" element={<ProcessesPage />} />   
+            
             </Routes>
         </Router>
     );

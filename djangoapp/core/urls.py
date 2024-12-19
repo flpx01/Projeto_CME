@@ -14,6 +14,4 @@ router.register(r"processes", ProcessViewSet, basename="process")
 urlpatterns = router.urls + [
     path("reports/pdf/", generate_pdf_report, name="pdf_report"),
     path("reports/xlsx/", generate_xlsx_report, name="xlsx_report"),
-    path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]

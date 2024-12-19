@@ -1,7 +1,8 @@
 Django==5.1.4
 djangorestframework
 djangorestframework-simplejwt
-corsheaders
+django-cors-headers
 reportlab
 openpyxl
 psycopg2-binary
+

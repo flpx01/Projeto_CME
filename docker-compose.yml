@@ -1,6 +1,7 @@
 version: '3.9'
 
 services:
+
   backend:
     build:
       context: ./djangoapp
@@ -37,6 +38,5 @@ services:
     env_file:
       - ./dotenv_files/db.env
 
-volumes:
-  db_data:
-    driver: local
+ 
+

@@ -1,18 +1,15 @@
-# Usar a imagem oficial do Python
 FROM python:3.12
 
-# Definir o diretório de trabalho no contêiner
+# Definir diretório de trabalho
 WORKDIR /app
 
-# Copiar os arquivos de requisitos
+# Copiar os requisitos e instalar dependências
 COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-# Atualizar o pip e instalar as dependências
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
-
-# Copiar o código do projeto
+# Copiar todo o conteúdo para o diretório de trabalho
 COPY . .
 
-# Comando para rodar o servidor de desenvolvimento do Django
+# Comando para iniciar o servidor
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+

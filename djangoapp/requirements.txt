@@ -5,4 +5,6 @@ django-cors-headers
 reportlab
 openpyxl
 psycopg2-binary
+django-debug-toolbar
+
 

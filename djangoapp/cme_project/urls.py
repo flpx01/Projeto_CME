@@ -10,5 +10,8 @@ def test_connection(request):
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/test/", test_connection),
+    path('__debug__/', include('debug_toolbar.urls')),
     path("api/", include("core.urls")),  # Rota de teste
 ]
+
+

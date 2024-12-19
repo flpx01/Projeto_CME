@@ -1,22 +1,15 @@
-# Usa a imagem oficial do Python 3.10 slim
-FROM python:3.10-slim
+FROM python:3.12
 
-# Define variáveis de ambiente
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Define o diretório de trabalho
+# Definir diretório de trabalho
 WORKDIR /app
 
-# Instala dependências
-COPY requirements.txt /app/
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Copiar os requisitos e instalar dependências
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-# Copia o projeto para dentro do container
-COPY . /app/
+# Copiar todo o conteúdo para o diretório de trabalho
+COPY . .
 
-# Expõe a porta 8000
-EXPOSE 8000
-
-# Comando padrão para rodar o servidor
+# Comando para iniciar o servidor
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+

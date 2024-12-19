@@ -1,21 +1,20 @@
-# Frontend Dockerfile
-FROM node:20-alpine
+# Usar a imagem oficial do Node.js
+FROM node:14
 
-# Define o diretório de trabalho
+# Definir o diretório de trabalho no contêiner
 WORKDIR /app
 
-# Copia os arquivos package.json e package-lock.json
-COPY package.json /app/
-COPY package-lock.json /app/
+# Copiar os arquivos de configuração do npm
+COPY package*.json ./
 
-# Instala as dependências
+# Instalar as dependências
 RUN npm install
 
-# Copia o código do projeto para dentro do container
-COPY . /app
+# Copiar o restante do código do projeto
+COPY . .
 
-# Exposição da porta 3000
+# Expor a porta que o aplicativo irá usar
 EXPOSE 3000
 
-# Comando padrão para iniciar o servidor React
+# Comando para iniciar a aplicação
 CMD ["npm", "start"]

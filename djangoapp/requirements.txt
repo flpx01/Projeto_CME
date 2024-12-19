@@ -1,7 +1,8 @@
-Django==5.1.4  # Compatível com Python 3.12
-djangorestframework==3.14.0  # Suporte ao Python 3.12
-djangorestframework-simplejwt==5.2.2  # Suporte ao Python 3.12
-corsheaders==3.14.0  # Compatível com Python 3.12
-reportlab==3.6.13  # Versão mais recente compatível
-openpyxl==3.1.2  # Compatível com Python 3.12
-psycopg2-binary==2.9.8  # Suporte ao Python 3.12
+Django==5.1.4
+djangorestframework
+djangorestframework-simplejwt
+django-cors-headers
+reportlab
+openpyxl
+psycopg2-binary
+django-debug-toolbar
